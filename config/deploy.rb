@@ -22,7 +22,10 @@ set :linked_dirs, fetch(:linked_dirs, []).push('web/app/uploads')
 
 set :theme_path, -> { releases_path.join(release_timestamp).join("web/app/themes/roots") }
 set :npm_target_path, fetch(:theme_path)
+set :npm_flags, "--silent"
 set :grunt_target_path, fetch(:theme_path)
+set :grunt_tasks, 'build'
+before 'deploy:updated', 'grunt'
 
 namespace :deploy do
   desc 'Restart application'
