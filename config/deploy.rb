@@ -20,7 +20,7 @@ set :linked_files, fetch(:linked_files, []).push('.env', 'web/.htaccess')
 # set :linked_files, fetch(:linked_files, []).push('.env')
 set :linked_dirs, fetch(:linked_dirs, []).push('web/app/uploads')
 
-set :theme_path, "#{release_path}/app/themes/roots"
+set :theme_path, -> { releases_path.join(release_timestamp).join("web/app/themes/roots") }
 set :npm_target_path, fetch(:theme_path)
 set :grunt_target_path, fetch(:theme_path)
 
