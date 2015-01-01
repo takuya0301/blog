@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "178560b1c9b9e86760206bba5f18177d",
+    "hash": "f10b4d881918f354d7f994f6d039d6ad",
     "packages": [
         {
             "name": "composer/installers",
@@ -131,6 +131,20 @@
             "description": "A composer installer for libraries that live in an application webroot.",
             "homepage": "http://fancyguy.github.com/webroot-installer/",
             "time": "2013-03-15 17:51:14"
+        },
+        {
+            "name": "roots/roots",
+            "version": "7.0.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/roots/roots/archive/7.0.3.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "v1.0.12"
+            },
+            "type": "wordpress-theme"
         },
         {
             "name": "vlucas/phpdotenv",
