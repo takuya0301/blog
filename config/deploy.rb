@@ -3,11 +3,11 @@ set :repo_url, 'https://github.com/takuya0301/blog.git'
 
 # Branch options
 # Prompts for the branch name (defaults to current branch)
-#ask :branch, -> { `git rev-parse --abbrev-ref HEAD`.chomp }
+ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Hardcodes branch to always be master
 # This could be overridden in a stage config file
-set :branch, :master
+#set :branch, :master
 
 set :deploy_to, -> { "/var/www/html/#{fetch(:application)}/#{fetch(:stage)}" }
 
@@ -19,6 +19,10 @@ set :log_level, :debug
 set :linked_files, fetch(:linked_files, []).push('.env', 'web/.htaccess')
 # set :linked_files, fetch(:linked_files, []).push('.env')
 set :linked_dirs, fetch(:linked_dirs, []).push('web/app/uploads')
+
+set :theme_path, "#{release_path}/app/themes/omoshetech"
+set :npm_target_path, fetch(:theme_path)
+set :grunt_target_path, fetch(:theme_path)
 
 namespace :deploy do
   desc 'Restart application'
